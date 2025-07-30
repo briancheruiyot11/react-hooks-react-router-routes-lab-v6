@@ -1,16 +1,49 @@
-import { useEffect, useState } from "react";
+import NavBar from "../components/NavBar";
+
+const actors = [
+  {
+    name: "Benedict Cumberbatch",
+    movies: ["Doctor Strange", "The Imitation Game", "Black Mass"],
+  },
+  {
+    name: "Justin Timberlake",
+    movies: ["Trolls", "Friends with Benefits", "The Social Network"],
+  },
+  {
+    name: "Anna Kendrick",
+    movies: ["Pitch Perfect", "Into The Wood"],
+  },
+  {
+    name: "Tom Cruise",
+    movies: [
+      "Jack Reacher: Never Go Back",
+      "Mission Impossible 4",
+      "War of the Worlds",
+    ],
+  },
+];
 
 function Actors() {
   return (
     <>
       <header>
-        {/* What component should go here? */}
+        <NavBar />
       </header>
       <main>
-        {/* Actor info here! */}
+        <h1>Actors Page</h1>
+        {actors.map((actor, idx) => (
+          <article key={idx}>
+            <h2>{actor.name}</h2>
+            <ul>
+              {actor.movies.map((movie, idx2) => (
+                <li key={idx2}>{movie}</li>
+              ))}
+            </ul>
+          </article>
+        ))}
       </main>
     </>
   );
-};
+}
 
 export default Actors;
